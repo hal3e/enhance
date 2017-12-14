@@ -34,6 +34,7 @@ canvas.addEventListener('click', function(mouse) {
     clicked_circle = get_clicked_circle(mouse);
     // If clicked on last, add new circle
     if(clicked_circle == circles.length - 1){
+      game_state = 0;
       add_circle_animation();
     }
     //If clicked on any other Game over
@@ -160,7 +161,6 @@ function flash_last_circle(){
 
 // Start the animation for the new circle
 function add_circle_animation(){
-  game_state = 0;
   context.clearRect(0,0,width,height);
   context.fillStyle = 'white';
   context.font = "60px Verdana";
