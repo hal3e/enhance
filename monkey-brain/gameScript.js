@@ -7,9 +7,9 @@ canvas.width = width;
 canvas.height = height;
 
 // Number of elements to remember
-var mem_num   = 6;
+var mem_num   = 7;
 // Preview duration for the elements
-var mem_dur = 1000;
+var mem_dur = 1300;
 
 // Rows and columns where the numbers can be located
 var num_row =  4;
@@ -50,11 +50,10 @@ start_game();
 
 // Mouse event listener
 canvas.addEventListener('click', function(mouse) {
-  // Show numer of elements to memorize and preview duration
+  // Show number of elements to memorize and preview duration
   if(game_state == 0){
     game_state = 2;
     level_animation();
-    game_state = 1;
    }
   // Evaluate mouse click if game state is 1
   else if(game_state == 1) {
@@ -72,6 +71,7 @@ canvas.addEventListener('click', function(mouse) {
       // If the pressed box was not the last one show all the remaining numbers
       else{
         game_state = 0;
+        mem_dur += 100;
         draw_numbers_mistake();
       }
     }
@@ -157,8 +157,8 @@ function show_clear_last(){
     // If it was the last one start a new level
     if (numbers.length < 1) {
       game_state = 2;
+      mem_dur -= 100;
       level_animation();
-      game_state = 1;
     }
   }
 }
@@ -169,6 +169,7 @@ function draw_boxes() {
   for(var i=0; i<numbers.length; i++){
     context.fillRect(draw_x_offset - box_size/2 + (numbers[i].pos % (num_col))*105, draw_y_offset - box_size/2 + Math.floor(numbers[i].pos / num_col) * 100, box_size, box_size);
   }
+  game_state = 1;
 }
 
 // Get the value of the clicked number, otherwise -1
