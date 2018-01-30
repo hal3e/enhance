@@ -7,9 +7,9 @@ canvas.width = width;
 canvas.height = height;
 
 // Number of elements to remember
-var mem_num   = 7;
+var mem_num   = 8;
 // Preview duration for the elements
-var mem_dur = 1300;
+var mem_dur = 500;
 
 // Rows and columns where the numbers can be located
 var num_row =  4;
@@ -71,7 +71,7 @@ canvas.addEventListener('click', function(mouse) {
       // If the pressed box was not the last one show all the remaining numbers
       else{
         game_state = 0;
-        mem_dur += 100;
+        // mem_dur += 100;
         draw_numbers_mistake();
       }
     }
@@ -157,7 +157,7 @@ function show_clear_last(){
     // If it was the last one start a new level
     if (numbers.length < 1) {
       game_state = 2;
-      mem_dur -= 100;
+      // mem_dur -= 100;
       level_animation();
     }
   }
