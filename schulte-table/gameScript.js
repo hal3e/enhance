@@ -76,6 +76,8 @@ canvas.addEventListener('click', function(mouse) {
   if(game_state == 0){
     get_new_numbers();
     game_state = 1;
+    // Reset timer
+    timer = 0;
   }
 }, false);
 
