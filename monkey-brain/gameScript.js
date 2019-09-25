@@ -7,9 +7,10 @@ canvas.width = width;
 canvas.height = height;
 
 // Number of elements to remember
-var mem_num   = 8;
+var mem_num   = 9;
 // Preview duration for the elements
-var mem_dur = 500;
+// var mem_dur = 2000;
+var mem_dur = 1000;
 
 // Rows and columns where the numbers can be located
 var num_row =  4;
